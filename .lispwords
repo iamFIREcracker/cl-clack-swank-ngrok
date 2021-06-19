@@ -1,0 +1,5 @@
+(let 1)
+(prog1 1)
+(unless 1)
+(when 1)
+(with-open-file 1)
