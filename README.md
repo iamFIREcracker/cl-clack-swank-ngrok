@@ -1,5 +1,6 @@
 # clack-swank-ngrok
-Hello world Clack application with Swank and Ngrok running in the background
+Hello world Clack application, with Swank and Ngrok running in the background
+for remote hacking
 
 ## Overview
 
