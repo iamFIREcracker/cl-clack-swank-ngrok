@@ -8,7 +8,6 @@
 
   :depends-on (
                  #:clack
-                 #:find-port
                  #:ngrok
                  #:swank
                  #:uiop

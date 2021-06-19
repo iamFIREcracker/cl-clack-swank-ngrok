@@ -24,7 +24,7 @@
 
 
 (defvar *slime-secret* (uiop:getenv "SLIME_SECRET"))
-(defvar *swank-port* (find-port:find-port))
+(defparameter *swank-port* 4006)
 
 (defun swank ()
   (write-slime-secret)
