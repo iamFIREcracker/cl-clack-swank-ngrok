@@ -4,7 +4,7 @@ for remote hacking
 
 ## Overview
 
-- Clack Web application running on `localhost:5000`
+- Clack Web application running on `0.0.0.0:5000`
 - Swank server running on `localhost:4006`
 - Ngrok tunnel to expose `localhost:4006` (i.e. the Swank server)
 
@@ -76,15 +76,14 @@ Test the Web server:
     Hello, Clack!
 
 Open Vim/Emacs, connect to the Swank server (i.e. host: `6.tcp.eu.ngrok.io`,
-port: `12321`), and change the Web handler to return something else:
+port: `12321`), and change the Web handler to return something different:
 
     > (defun app (env)
         (declare (ignore env))
         '(200 (:content-type "text/plain") ("Hello, Matteo!")))
     APP
 
-Hit the Web server again, and this time you should see a different response
-message:
+Hit the Web server again, and this time it should return a different message:
 
     $ curl https://localhost:5000
     Hello, Matteo!
