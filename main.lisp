@@ -14,7 +14,7 @@
 
 (defvar *handler* nil)
 
-(defun clack () (setf *handler* (clack:clackup #'srv :address "0.0.0.0")))
+(defun clack () (setf *handler* (clack:clackup #'srv :address "0.0.0.0" :port 5000)))
 
 (defun srv (env) (app env))
 
