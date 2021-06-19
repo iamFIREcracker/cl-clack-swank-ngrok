@@ -20,7 +20,7 @@
 
 (defun app (env)
   (declare (ignore env))
-  '(200 (:content-type "text/plain") ("Hello, Matteo")))
+  '(200 (:content-type "text/plain") ("Hello, Clack!")))
 
 
 (defvar *slime-secret* (uiop:getenv "SLIME_SECRET"))
