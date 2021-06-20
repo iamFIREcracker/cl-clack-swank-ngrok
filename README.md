@@ -4,7 +4,8 @@ for remote hacking
 
 ## Overview
 
-- Clack Web application running on `0.0.0.0:5000`
+- Clack Web application running on `localhost:5000` (or `0.0.0.0:5000` when run
+  inside Replit)
 - Swank server running on `localhost:4006`
 - Ngrok tunnel to expose `localhost:4006` (i.e. the Swank server)
 
@@ -33,7 +34,7 @@ Call WEB:START:
 
     > (web:start)
     Hunchentoot server is started.
-    Listening on 0.0.0.0:5000.
+    Listening on localhost:5000.
     ;; Swank started at port: 4006.
      <INFO> [10:13:43] ngrok setup.lisp (install-ngrok) -
       Ngrok already installed, changing authtoken
@@ -67,7 +68,7 @@ instead), then all you have to do is pass `:dont-ngrok t` to WEB:START:
 
     > (web:start :dont-ngrok t)
     Hunchentoot server is started.
-    Listening on 0.0.0.0:5000.
+    Listening on localhost:5000.
     ;; Swank started at port: 4006.
 
 Test the Web server:

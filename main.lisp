@@ -5,8 +5,8 @@
 (in-package #:web)
 
 
-(defun main (&key dont-ngrok)
-  (clack)
+(defun main (&key web-interface dont-ngrok)
+  (clack web-interface)
   (swank)
   (unless dont-ngrok
     (ngrok)))
@@ -14,7 +14,7 @@
 
 (defvar *handler* nil)
 
-(defun clack () (setf *handler* (clack:clackup #'srv :address "0.0.0.0" :port 5000)))
+(defun clack (address) (setf *handler* (clack:clackup #'srv :address address :port 5000)))
 
 (defun srv (env) (app env))
 
@@ -49,12 +49,12 @@
         (force-output *query-io*)
         (read-line *query-io*))))
 
-(defun start (&key dont-ngrok)
+(defun start (&key (web-interface "localhost") dont-ngrok)
   (let ((*slime-secret* (getenv-or-readline "SLIME_SECRET"))
         (*ngrok-auth-token* (if dont-ngrok
                                 *ngrok-auth-token*
                                 (getenv-or-readline "NGROK_AUTH_TOKEN"))))
-    (main :dont-ngrok dont-ngrok)))
+    (main :web-interface web-interface :dont-ngrok dont-ngrok)))
 
 (defun stop()
   (ngrok:stop)
