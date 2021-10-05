@@ -1,4 +1,3 @@
-;;; The following lines added by ql:add-to-init-file:
 #-quicklisp
 (let ((quicklisp-init (merge-pathnames "quicklisp/setup.lisp"
                                        (user-homedir-pathname))))
@@ -31,6 +30,3 @@
   (loop :while (read-line stream nil nil))
   (values))
 (set-dispatch-macro-character #\# #\; #'sharp-semicolon-reader)
-
-;;; Stop symlinking -- https://www.reddit.com/r/Common_Lisp/comments/lx6al4/loading_an_asdf_system_from_current_directory/gplgpww/
-(pushnew '*default-pathname-defaults* asdf:*central-registry*)
