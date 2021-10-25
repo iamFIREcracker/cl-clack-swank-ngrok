@@ -1,8 +1,5 @@
 language = "nix"
 run = """\
-nix-shell /opt/nixproxy.nix \
-  --argstr repldir $PWD \
-  --command '\
     LD_LIBRARY_PATH=$(nix eval --raw nixpkgs.openssl.out)/lib:$LD_LIBRARY_PATH \
     rlwrap \
     --only-cook \"^\\[[a-zA-Z ]+\\] [-a-zA-Z0-9._/]+\" \
@@ -10,5 +7,5 @@ nix-shell /opt/nixproxy.nix \
     -- \
     sbcl \
       --noinform \
-      --load replit.lisp' \
+      --load replit.lisp \
 """
